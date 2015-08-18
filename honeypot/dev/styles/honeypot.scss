@@ -1,0 +1,281 @@
+@import url(http://fonts.googleapis.com/css?family=Quicksand|Open+Sans);
+$font-title: 'Quicksand', sans-serif;
+$font-body: 'Open Sans', sans-serif;
+
+$grey:#cccccc;
+$rausch:#FF5A5F;
+$kazan:#007A87;
+$hackberry:#7B0051;
+$babu:#00D1C1;
+$lima:#8CE071;
+$beach:#FFB400;
+$ebisu:#FFAA91;
+$tirol:#B4A76C;
+$foggy:#9CA299;
+$hof:#565A5C;
+$light_kazan:#4DA2AB;
+$light_hackberry:#B06697;
+$light_beach:#FFDE8D;
+$light_tirol:#E1DCC4;
+
+
+@import "susy";
+
+body {
+  margin: 0;
+}
+
+$susy: (
+  columns: 10,
+  gutters: 0,
+  );
+
+.wrap {
+  @include container(100%);
+  height: 100%;
+}
+
+.detailColumn {
+  position:fixed;
+  right: 0;
+  margin: 1.5%;
+  height:95%;
+  @include span(78 of 100 last);
+}
+
+form, h1, h2 {
+  font-family:$font-title;
+}
+
+text, tr, button, p {
+  font-family:$font-body;
+}
+
+.detailText {
+  height:15%;
+  .divider {
+    height:1px;
+    background-color:$grey;
+  }
+  h1,p {
+    display:inline;
+    margin-left:20px;
+  }
+  .focusVal, .measure, .focusDate {
+    margin:0;
+    margin-right:20px;
+    float:right;
+  }
+}
+
+.detailView {
+  box-shadow: 0px 2px 10px grey;
+  background-color: white;
+  height:83%;
+}
+
+.measureRow {
+  height:30px;
+  .filterButton {
+    @include span(1 of 4);
+    background: darken($grey,10%);
+    height:30px;
+    color:white;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border: 1px solid lighten($grey,5%);
+
+    &:hover {
+      background: $rausch;
+    }
+    &:active {
+      background: lighten($rausch,5%);
+    }
+    &:focus {
+      outline:0;
+    }
+    &.selected {
+      background: $rausch;
+    }
+  }
+}
+
+.chart {
+  width:100%;
+  height:93%;
+  .mainChart {
+    width:100%;
+    height:80%;
+    .xAxis, .yAxis {
+      path, text, .tick {
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+        stroke: $grey;
+      }
+      path {
+        fill: none;
+      }
+      text {
+        fill: $grey;
+        stroke-width: 0.5px;
+        font-size: 14px; 
+      }
+    }
+    .line {
+      fill: None;
+      stroke: $rausch;
+      stroke-width: 3px;
+    }
+    .focusLine {
+        stroke-width: 2px;
+        shape-rendering: crispEdges;
+        stroke: $grey;
+    }
+  }
+  .navigator {
+    .xAxis {
+      path, text, .tick {
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+        stroke: $grey;
+      }
+      path {
+        fill: none;
+      }
+      text {
+        fill: $grey;
+        stroke-width: 0.5px;
+        font-size: 14px; 
+      }
+    }
+    .line {
+      fill: None;
+      stroke: grey;
+      stroke-width: 1px;
+    }
+    .fill {
+      fill: $grey;
+    }
+    .viewport {
+      stroke: grey;
+      fill: black;
+      fill-opacity: 0.2;
+    }
+  }
+}
+
+.sidebar {
+  background: $grey; 
+  height: 100%;
+  text-align: center; 
+  position: absolute;
+  box-shadow: 0px 0px 15px grey;
+  border-right: 2px solid white;
+  @media (min-width: 700px) {
+    @include span(2 of 10 first);
+    .searchBox {
+      border-bottom: 2px solid grey;
+      height:50px;
+      padding:5px;
+      input {
+        padding-left:10px;
+        font-size: 30px; 
+        width:94%;
+        height:85%;
+      }
+    }
+    .filterOptions {
+      .filterOptionRow {
+        height:30px;
+        .filterButton {
+          background: darken($grey,10%);
+          height:30px;
+          color:white;
+          font-size: 16px;
+          text-align: center;
+          border: none;
+          border: 1px solid lighten($grey,5%);
+
+          &:hover {
+            background: $rausch;
+          }
+          &:active {
+            background: lighten($rausch,5%);
+          }
+          &:focus {
+            outline:0;
+          }
+          &.selected {
+            background: $rausch;
+          }
+        }
+      }
+    }
+    overflow: auto;
+    .filterResults {
+      margin-left: 5%;
+      width:95%;
+      table-layout:fixed;
+      .filterDescription {
+        width:160%;
+        text-align:left;
+        color:white;
+      }
+      .filterResultRow:hover {
+        background: darken($grey,10%);
+        cursor:pointer;
+      }
+
+      tr {
+        margin-top:10px;
+        margin-bottom:10px;
+        width:100%;
+        color:white;
+        font-size: 14px;
+
+        &.selected {
+          background: $rausch;
+        }
+        td, th {
+          text-align: left;
+        }
+        td {
+          border-bottom: 1px solid grey;
+          padding-bottom:5px;
+          padding-top:5px;
+          border-bottom: 1px solid white;
+          overflow:hidden;
+        }
+        th {
+          border-bottom: 1px solid white;
+          padding-bottom: 10px;
+          padding-top: 10px;
+        }
+        .filterResultRowName {
+          width:60%;
+        }
+        .filterResultRowValue {
+          width:40%;
+        }
+      }
+    }
+  }
+}
+
+.quarter {
+  @include span(1 of 4);
+}
+
+.third {
+  @include span(1 of 3);
+}
+
+.half {
+  @include span(1 of 2);
+}
+
+html, body{
+  height:100%;
+}
+
