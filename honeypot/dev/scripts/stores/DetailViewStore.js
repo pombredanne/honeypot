@@ -5,7 +5,7 @@
 const AppDispatcher = require('../dispatcher/AppDispatcher');
 const EventEmitter = require('events').EventEmitter;
 const DetailViewConstants = require('../constants/DetailViewConstants');
-const assign = require('object-assign');
+const assign = require('object.assign');
 
 const MEASURE_CHANGE_EVENT = 'measure_change';
 const DATA_UPDATE_EVENT = 'data_update';

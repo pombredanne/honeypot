@@ -5,7 +5,7 @@
 const AppDispatcher = require('../dispatcher/AppDispatcher');
 const EventEmitter = require('events').EventEmitter;
 const FilterConstants = require('../constants/FilterConstants');
-const assign = require('object-assign');
+const assign = require('object.assign');
 const DetailViewStore = require('./DetailViewStore');
 
 const FILTER_CHANGE_EVENT = 'filter_change';
