@@ -14,7 +14,7 @@ const DAG_SET_EVENT = 'dag_chosen';
 const _store = {
   results: null, // The current dags/tasks listed on the sidebar w/ values
   measure: 'io', // The current filter measure
-  time: 'month', // The current filter time range
+  time: 'week', // The current filter time range
   dag: null, // The currently selected task or dag
   change: 'percent', // Whether the filter shows absolute or relative change
   searchFilter: '', // The contents of the search bar that filters results

@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Quicksand|Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Quicksand|Open+Sans);
 body {
   margin: 0;
 }
@@ -173,7 +173,7 @@ text, tr, button, p {
     background: #b3b3b3;
     height: 30px;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     border: none;
     border: 1px solid #d9d9d9;
@@ -192,11 +192,10 @@ text, tr, button, p {
   }
   .sidebar .filterResults {
     margin-left: 5%;
-    width: 95%;
     table-layout: fixed;
   }
   .sidebar .filterResults .filterDescription {
-    width: 160%;
+    width: 125%;
     text-align: left;
     color: white;
   }
@@ -207,7 +206,6 @@ text, tr, button, p {
   .sidebar .filterResults tr {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 100%;
     color: white;
     font-size: 14px;
   }
@@ -228,12 +226,6 @@ text, tr, button, p {
     border-bottom: 1px solid white;
     padding-bottom: 10px;
     padding-top: 10px;
-  }
-  .sidebar .filterResults tr .filterResultRowName {
-    width: 60%;
-  }
-  .sidebar .filterResults tr .filterResultRowValue {
-    width: 40%;
   }
 }
 

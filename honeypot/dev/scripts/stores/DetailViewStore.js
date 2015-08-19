@@ -14,7 +14,7 @@ const FOCUS_UPDATE_EVENT = 'focus_update';
 
 const _store = {
   measure: 'io', // The currently selected measure for the graph
-  dag: null,
+  dag: null, // The currently selected DAG
   name: 'Select a DAG or Task', // The id (name) of the thing being viewed
   owner: 'owner', // the owner of the thing being viewed
   focusValue: 0, // The value of whatever is being moused over on the graph
@@ -103,8 +103,12 @@ const DetailViewStore = assign({}, EventEmitter.prototype, {
 
   // Getter method for details that creates fetch if need be
   getDetails: function(){
+    let name = _store.id;
+    if (_store.dag !== _store.id) {
+      name = _store.dag + '.' + _store.id;
+    }
     return {
-      name: _store.id,
+      name: name,
       owner: _store.owner
     };
   },
@@ -164,8 +168,6 @@ AppDispatcher.register(function(action) {
     case DetailViewConstants.UPDATE_DAG:
       _store.dag = action.dag;
       break;
-
-
     default:
       // no op
   }

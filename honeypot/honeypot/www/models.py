@@ -19,7 +19,7 @@ class HoneypotLogTable(object):
 
         # Infer the grain depending if a dag is specified
         grain = 'dag'
-        if dag:
+        if dag and dag != name:
             grain = 'task'
 
         args['where'] = "WHERE {grain}_id = '{name}'".format(**locals())
@@ -89,8 +89,8 @@ class HoneypotLogTable(object):
         # Create the correct date range
         end = str(datetime.datetime.utcnow())
         start = None
-        if time == 'day':
-            date = (datetime.datetime.utcnow() - datetime.timedelta(days=1))
+        if time == 'year':
+            date = (datetime.datetime.utcnow() - datetime.timedelta(years=1))
             start = date.strftime("%Y-%m-%d %H:%M:%S")
         elif time == 'week':
             date = (datetime.datetime.utcnow() - datetime.timedelta(days=7))

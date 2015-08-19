@@ -26,7 +26,7 @@ const Sidebar = React.createClass({
         <SearchBox />
         <div className='filterOptions'>
           <FilterOptionRow name={'measure'} labels={['I/O','CPU','Mappers','Reducers']} />
-          <FilterOptionRow name={'time'} labels={['Day','Week','Month']} />
+          <FilterOptionRow name={'time'} labels={['Week','Month','Year']} />
           <FilterOptionRow ref='grainRow' name={'grain'} labels={['DAG','Task']} />
         </div>
         <FilterResultsTable />

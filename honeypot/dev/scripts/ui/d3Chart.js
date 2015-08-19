@@ -208,21 +208,23 @@ d3Chart.bisectDate = d3.bisector(function(d) { return d.date; }).left;
 // Draw a vertical line and update the focus date / value
 d3Chart.mousemove = function() {
   // Snap to one mouse point because will never mouse over a date exactly
-  const mouseoverDate = d3Chart.mainScales.x.invert(d3.mouse(this)[0]),
-    index = d3Chart.bisectDate(d3Chart.data, mouseoverDate, 1),
-    pointBeforeDate = d3Chart.data[index - 1],
-    pointOnDate = d3Chart.data[index],
-    point = (mouseoverDate - pointBeforeDate.date) > (pointOnDate.date - mouseoverDate) ?
-      pointOnDate : pointBeforeDate;
-  DetailViewActions.updateFocusData(point.date, point.value);
-  // Draw the line
-  const margins = d3Chart.margins();
-  const x = d3.mouse(this)[0] < margins.left ? margins.left : d3.mouse(this)[0];
-  const focusLine = d3.select('.focusLine')
-    .attr('x1', x)
-    .attr('x2', x)
-    .attr('y1', 0)
-    .attr('y1', d3Chart.mainSize().height - margins.bottom);
+  if (d3Chart.data) {
+    const mouseoverDate = d3Chart.mainScales.x.invert(d3.mouse(this)[0]),
+      index = d3Chart.bisectDate(d3Chart.data, mouseoverDate, 1),
+      pointBeforeDate = d3Chart.data[index - 1],
+      pointOnDate = d3Chart.data[index],
+      point = (mouseoverDate - pointBeforeDate.date) > (pointOnDate.date - mouseoverDate) ?
+        pointOnDate : pointBeforeDate;
+    DetailViewActions.updateFocusData(point.date, point.value);
+    // Draw the line
+    const margins = d3Chart.margins();
+    const x = d3.mouse(this)[0] < margins.left ? margins.left : d3.mouse(this)[0];
+    const focusLine = d3.select('.focusLine')
+      .attr('x1', x)
+      .attr('x2', x)
+      .attr('y1', 0)
+      .attr('y1', d3Chart.mainSize().height - margins.bottom);
+  }
 };
 
 module.exports = d3Chart;

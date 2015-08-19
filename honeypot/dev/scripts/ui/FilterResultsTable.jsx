@@ -63,7 +63,7 @@ const FilterResultsTable = React.createClass({
           </tr>
           {this.state.results.map(function(result, i){
             // Create all the result rows
-            const resultsRowProps = {
+            let resultsRowProps = {
               name: result.name,
               key: i,
               value: Number(result.value.toFixed(1)),
@@ -71,7 +71,9 @@ const FilterResultsTable = React.createClass({
               selected:(i == this.state.selected) ? true : false
             }
             // Shorten name to prevent overflow
-            if (name.length > 15) props.name = props.name.slice(0,15) + '...';
+            if (resultsRowProps.name.length > 25){ 
+              resultsRowProps.name = resultsRowProps.name.slice(0,25) + '...';
+            }
 
             return ( <FilterResultRow  {...resultsRowProps} /> );
           }, this)}

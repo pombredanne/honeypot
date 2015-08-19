@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Quicksand|Open+Sans);
+@import url(//fonts.googleapis.com/css?family=Quicksand|Open+Sans);
 $font-title: 'Quicksand', sans-serif;
 $font-body: 'Open Sans', sans-serif;
 
@@ -192,7 +192,7 @@ text, tr, button, p {
           background: darken($grey,10%);
           height:30px;
           color:white;
-          font-size: 16px;
+          font-size: 14px;
           text-align: center;
           border: none;
           border: 1px solid lighten($grey,5%);
@@ -215,10 +215,9 @@ text, tr, button, p {
     overflow: auto;
     .filterResults {
       margin-left: 5%;
-      width:95%;
       table-layout:fixed;
       .filterDescription {
-        width:160%;
+        width:125%;
         text-align:left;
         color:white;
       }
@@ -230,7 +229,6 @@ text, tr, button, p {
       tr {
         margin-top:10px;
         margin-bottom:10px;
-        width:100%;
         color:white;
         font-size: 14px;
 
@@ -251,12 +249,6 @@ text, tr, button, p {
           border-bottom: 1px solid white;
           padding-bottom: 10px;
           padding-top: 10px;
-        }
-        .filterResultRowName {
-          width:60%;
-        }
-        .filterResultRowValue {
-          width:40%;
         }
       }
     }
